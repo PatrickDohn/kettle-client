@@ -3,10 +3,11 @@ import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
-import Header from '../Header/Header'
+import FrontPage from '../FrontPage/FrontPage'
 import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
+// import Home from '../Home/Home'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
 class App extends Component {
@@ -32,7 +33,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
+        <FrontPage user={user} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert
             key={index}
