@@ -3,7 +3,7 @@ import './feed.css'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
 
-function Feed () {
+function Feed ({ user }) {
   return (
     <div className="feed">
       { /* Header */ }
@@ -12,7 +12,7 @@ function Feed () {
       </div>
 
       { /* Tweets */ }
-      <Tweets />
+      <Tweets user={user}/>
 
       { /* Posts */ }
 

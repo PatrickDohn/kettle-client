@@ -3,14 +3,14 @@ import Sidebar from '../Sidebar/Sidebar'
 import Feed from '../Feed/Feed'
 import './home.css'
 
-function Home () {
+function Home ({ user }) {
   return (
     <div className='app'>
       {/* Sidebar */}
       <Sidebar />
 
       {/* Feed */}
-      <Feed />
+      <Feed user={user}/>
 
     </div>
   )
