@@ -1,5 +1,5 @@
 import React from 'react'
-import './tweets.css'
+import './tweet.css'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 

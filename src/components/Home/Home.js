@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
+import Feed from '../Feed/Feed'
 import './home.css'
 
 function Home () {
@@ -9,8 +10,8 @@ function Home () {
       <Sidebar />
 
       {/* Feed */}
+      <Feed />
 
-      {/* Trends */}
     </div>
   )
 }
