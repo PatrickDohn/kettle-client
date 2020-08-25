@@ -1,0 +1,42 @@
+.tweets {
+  padding-bottom: 10px;
+  border-bottom: 8px solid #333;
+  padding-right: 10px;
+}
+
+.tweets > form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background-color: rgb(21,33,43);
+  color: #646b77;
+}
+
+.tweet-input {
+  padding: 20px;
+  display: flex;
+}
+
+.tweet-input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+}
+
+.tweet-btn {
+  background-color: #50b7f5 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit;
+  border-radius: 30px !important;
+  width: 80px;
+  height: 40px !important;
+  margin-top: 20px !important;
+  margin-left: auto !important;
+
+
+}

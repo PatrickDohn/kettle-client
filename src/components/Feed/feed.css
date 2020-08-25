@@ -1,0 +1,24 @@
+.feed {
+  flex: 0.4;
+  border-right: 1px solid #333;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.feed::-webkit-scrolbar {
+  display: none;
+}
+
+.feed-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid #333;
+  padding: 15px 20px;
+}
+
+.feed-header > h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
