@@ -1,7 +1,7 @@
 import React from 'react'
 import './feed.css'
-import Tweets from './Tweets'
-import Post from './Post'
+import Tweets from '../Tweets/Tweets'
+import Post from '../Post/Post'
 
 function Feed () {
   return (
