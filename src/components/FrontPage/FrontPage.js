@@ -24,10 +24,7 @@ const unauthenticatedOptions = (
 
 const FrontPage = ({ user }) => (
   <div>
-    <div className="ml-auto">
-      { user && <span className="navbar-text mr-2">Whats on your mind? {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-    </div>
+    { user ? authenticatedOptions : unauthenticatedOptions }
   </div>
 )
 

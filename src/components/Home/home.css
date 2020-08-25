@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(0.25turn, #d2d67c, #FFFDD0);
+  color: #252834;
+}
+
 .app {
   display: flex;
   height: 100vh;
