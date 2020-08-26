@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { Route } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 // import Home from '../Home/Home'
@@ -30,11 +30,21 @@ import Post from '../Post/Post'
 //     )
 //   }
 // }
-const Profile = (props, user) => {
+const Profile = ({ user }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
 
+  useEffect(() => {
+    axios({
+      url: `${apiUrl}/profile`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }, [])
   if (postId) {
     axios({
       url: `${apiUrl}/profile`,
@@ -60,7 +70,7 @@ const Profile = (props, user) => {
       .then(() => setDeletedPost(false))
       .catch(console.error)
   }
-
+  console.log(user)
   return (
     <div className="feed">
       { /* Header */ }
