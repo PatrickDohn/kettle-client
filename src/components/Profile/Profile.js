@@ -8,28 +8,7 @@ import apiUrl from '../../apiConfig'
 // import { Link } from 'react-router-dom'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
-// class Profile extends Component {
-//   constructor (props, user) {
-//     super(props)
-//     this.state = {
-//       posts: []
-//     }
-//   }
-//   componentDidMount () {
-//     // make a GET request for all of the books
-//     axios(`${apiUrl}/profile`)
-//       .then(res => this.setState({ posts: res.data.posts }))
-//       .catch(console.error)
-//   }
-//   render () {
-//     return (
-//       <div>
-//         <Sidebar />
-//         <Post user={user} />
-//       </div>
-//     )
-//   }
-// }
+
 const Profile = ({ user }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
