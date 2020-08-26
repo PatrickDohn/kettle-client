@@ -7,9 +7,8 @@ import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Tweets = ({ user }) => {
+const Tweets = ({ user, postId, setPostId }) => {
   const [post, setPost] = useState('')
-  const [postId, setPostId] = useState(null)
 
   const handleChange = event => {
     event.persist()
@@ -36,10 +35,6 @@ const Tweets = ({ user }) => {
     })
       .then(res => setPostId(res.data.post._id))
       .catch(console.error)
-  }
-
-  if (postId) {
-    console.log('It worked!')
   }
 
   return (
