@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './feed.css'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
@@ -8,7 +8,19 @@ import apiUrl from '../../apiConfig'
 const Feed = ({ user }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
+  const [postOwner, setPostOwner] = useState('anon')
   const [deletedPost, setDeletedPost] = useState(false)
+
+  useEffect(() => {
+    axios({
+      url: `${apiUrl}/posts`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }, [])
 
   if (postId) {
     axios({
@@ -44,6 +56,7 @@ const Feed = ({ user }) => {
         <Tweets
           postId={postId}
           setPostId={setPostId}
+          setPostOwner={setPostOwner}
           user={user}/>
       </div>
 
@@ -60,6 +73,7 @@ const Feed = ({ user }) => {
         posts={posts}
         setPosts={setPosts}
         setDeletedPost={setDeletedPost}
+        postOwner={postOwner}
         user={user}/>
     </div>
   )
