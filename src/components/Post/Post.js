@@ -20,6 +20,21 @@ const Post = ({ user }) => {
       .catch(console.error)
   }
 
+  console.log(posts)
+
+  const handleDelete = event => {
+    const thePost = event.target.id
+    console.log(thePost)
+    axios({
+      url: `${apiUrl}/posts/${thePost}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .catch(console.error)
+  }
+
   const postsJsx = posts.map(post => (
     <div key={post._id} className="post">
       <div className="card text-center">
@@ -32,9 +47,13 @@ const Post = ({ user }) => {
           <h5 className="card-title"></h5>
           <p className="card-text">{post.content}</p>
           <a href="#" className="btn btn-primary">@{user.email}</a>
+          {user._id === post.owner ? <button
+            className="btn btn-danger"
+            id={post._id}
+            onClick={handleDelete}>Delete</button> : ''}
         </div>
         <div className="card-footer text-muted">
-          12hrs ago
+          {post.createdAt}
         </div>
       </div>
     </div>
