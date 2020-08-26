@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './feed.css'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 
-function Feed ({ user }) {
+const Feed = ({ user }) => {
+  const [postId, setPostId] = useState(null)
+  const [posts, setPosts] = useState([])
+
+  if (postId) {
+    axios({
+      url: `${apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }
+
   return (
     <div className="feed">
       { /* Header */ }
@@ -12,11 +29,17 @@ function Feed ({ user }) {
       </div>
 
       { /* Tweets */ }
-      <Tweets user={user}/>
+      <Tweets
+        postId={postId}
+        setPostId={setPostId}
+        user={user}/>
 
       { /* Posts */ }
 
-      <Post user={user}/>
+      <Post
+        posts={posts}
+        setPosts={setPosts}
+        user={user}/>
     </div>
   )
 }
