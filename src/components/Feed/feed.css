@@ -1,5 +1,5 @@
 .feed {
-  flex: 0.4;
+  flex: 0.6;
   border-right: 1px solid #333;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -18,10 +18,12 @@
   border: 1px solid #333;
   padding: 15px 20px;
   background-color: #344a57;
+  opacity: 0.9;
   color: white;
 }
 
-.feed-header > h2 {
+.topFeed {
   font-size: 20px;
   font-weight: 800;
+  border-bottom: 1px solid #50b7f5;
 }

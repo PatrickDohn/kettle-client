@@ -39,13 +39,17 @@ const Feed = ({ user }) => {
       { /* Header */ }
       <div className="feed-header">
         <h2 className="topFeed">Home</h2>
+        <Tweets user={user}/>
       </div>
 
       { /* Tweets */ }
+<<<<<<< HEAD
       <Tweets
         postId={postId}
         setPostId={setPostId}
         user={user}/>
+=======
+>>>>>>> updates styling and fixes post order
 
       { /* Posts */ }
 
