@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import SidebarOption from '../SidebarOptions/SidebarOptions'
 import './sidebar.css'
+// import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
 import Button from 'react-bootstrap/Button'
 
 class Sidebar extends React.Component {
@@ -11,6 +12,7 @@ class Sidebar extends React.Component {
   render () {
     return (
       <div className="sidebar">
+
         <button className="homeLinks" onClick={() => this.nextPath('/home') }>
           <SidebarOption text='Home' />
         </button>
@@ -30,8 +32,3 @@ class Sidebar extends React.Component {
 }
 
 export default withRouter(Sidebar)
-/* <Button type="button" href="#change-password">Change Password</Button>
-<Button href="#sign-out">Sign Out</Button> */
-
-/* Icon={HomeIcon}
-Icon={AccountCircleIcon} */
