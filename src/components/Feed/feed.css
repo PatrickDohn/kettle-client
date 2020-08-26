@@ -6,6 +6,7 @@
   scrollbar-width: none;
 }
 
+
 .feed::-webkit-scrolbar {
   display: none;
 }
@@ -16,6 +17,8 @@
   z-index: 100;
   border: 1px solid #333;
   padding: 15px 20px;
+  background-color: #344a57;
+  color: white;
 }
 
 .feed-header > h2 {

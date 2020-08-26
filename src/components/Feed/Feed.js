@@ -8,7 +8,7 @@ function Feed ({ user }) {
     <div className="feed">
       { /* Header */ }
       <div className="feed-header">
-        <h2>Home</h2>
+        <h2 className="topFeed">Home</h2>
       </div>
 
       { /* Tweets */ }
