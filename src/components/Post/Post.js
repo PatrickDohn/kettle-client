@@ -18,8 +18,6 @@ const Post = ({ user, posts, setPosts }) => {
       .catch(console.error)
   }
 
-  console.log(posts)
-
   const handleDelete = event => {
     const thePost = event.target.id
 
