@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 // import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
 
-const Post = ({ user }) => {
-  const [posts, setPosts] = useState([])
-
+const Post = ({ user, posts, setPosts }) => {
   const handleClick = event => {
     axios({
       url: `${apiUrl}/posts`,
@@ -24,7 +22,7 @@ const Post = ({ user }) => {
 
   const handleDelete = event => {
     const thePost = event.target.id
-    console.log(thePost)
+
     axios({
       url: `${apiUrl}/posts/${thePost}`,
       method: 'DELETE',
