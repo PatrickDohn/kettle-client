@@ -5,7 +5,7 @@ import apiUrl from '../../apiConfig'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
 
-const Post = ({ user, posts, setPosts }) => {
+const Post = ({ user, posts, setPosts, setDeletedPost }) => {
   const handleClick = event => {
     axios({
       url: `${apiUrl}/posts`,
@@ -28,6 +28,7 @@ const Post = ({ user, posts, setPosts }) => {
         'Authorization': `Token token=${user.token}`
       }
     })
+      .then(res => setDeletedPost(true))
       .catch(console.error)
   }
 
