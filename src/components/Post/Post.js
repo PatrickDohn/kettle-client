@@ -5,19 +5,7 @@ import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
 
-const Post = ({ user, posts, setPosts, setDeletedPost }) => {
-  const handleClick = event => {
-    axios({
-      url: `${apiUrl}/posts`,
-      method: 'GET',
-      headers: {
-        'Authorization': `Token token=${user.token}`
-      }
-    })
-      .then(res => setPosts(res.data.posts))
-      .catch(console.error)
-  }
-
+const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
   const handleDelete = event => {
     const thePost = event.target.id
 
@@ -43,11 +31,12 @@ const Post = ({ user, posts, setPosts, setDeletedPost }) => {
         <div className="card-body">
           <h5 className="card-title"></h5>
           <p className="card-text">{post.content}</p>
-          <a href="#" className="btn btn-primary">@{user.email}</a>
+          <a href="#" className="btn btn-primary">@{postOwner}</a>
           {user._id === post.owner ? <button
             className="btn btn-danger"
             id={post._id}
             onClick={handleDelete}>Delete</button> : ''}
+          {user._id === post.owner ? <a>Edit</a> : ''}
         </div>
         <div className="card-footer text-muted">
           {post.createdAt}
@@ -58,7 +47,6 @@ const Post = ({ user, posts, setPosts, setDeletedPost }) => {
 
   return (
     <div>
-      <button onClick={handleClick}>See the tea</button>
       <ul>
         {postsJsx.reverse()}
       </ul>

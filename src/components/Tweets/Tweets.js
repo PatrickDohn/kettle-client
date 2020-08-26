@@ -7,7 +7,7 @@ import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Tweets = ({ user, postId, setPostId }) => {
+const Tweets = ({ user, postId, setPostId, setPostOwner }) => {
   const [post, setPost] = useState('')
 
   const handleChange = event => {
@@ -34,6 +34,8 @@ const Tweets = ({ user, postId, setPostId }) => {
       data: { post }
     })
       .then(res => setPostId(res.data.post._id))
+      .then(() => setPost(''))
+      .then(() => setPostOwner(user.email))
       .catch(console.error)
   }
 
@@ -43,6 +45,7 @@ const Tweets = ({ user, postId, setPostId }) => {
         <div className="tweet-input">
           <Avatar src='AccountCircleIcon'></Avatar>
           <input
+            id="tweetField"
             placeholder="What's the tea?"
             type="text"
             name="content"
