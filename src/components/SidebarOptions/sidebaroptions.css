@@ -4,13 +4,6 @@
   cursor: pointer;
 }
 
-.sidebarOption:hover {
-  background-color: #cecb98;
-  color: white;
-  transition: color 100ms ease-out;
-
-}
-
 .sidebarOption > .MuiSvgIcon-root {
   padding: 20px;
 }

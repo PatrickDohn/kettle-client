@@ -1,5 +1,5 @@
 .sidebar {
-  border-right: 1px solid red;
+  border-right: 1px solid #344a57;
   flex: 0.3;
   display:flex;
   flex-direction: column;
@@ -9,20 +9,33 @@
   padding-right: 20px;
 }
 
-.homeLinks{
-  border: none;
-  background: linear-gradient(0.25turn, #d2d67c, #FFFDD0);
-  padding-top: 30px;
-  padding-bottom: 30px;
+.home-icon {
+  margin-right: 10px;
 }
 
-/* .twitter-icon {
+.homeLinks{
+  border: none;
+  background-color: transparent;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+
+}
+.homeLinks:hover {
+  background-color: #344a57;
+  color: white;
+  transition: color 100ms ease-out;
+
+}
+
+.twitter-icon {
   color: white !important;
   font-size: 30px !important;
   margin-left: 20px;
   margin-bottom: 30px;
   transform: rotate(-15deg);
-} */
+}
 
 .sidebar-tweet {
   background-color: #55554f !important;

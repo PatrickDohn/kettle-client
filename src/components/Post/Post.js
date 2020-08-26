@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-// import { Avatar } from '@material-ui/core'
+import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
 
-const Post = ({ user }) => {
-  const [posts, setPosts] = useState([])
+const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
+  const handleDelete = event => {
+    const thePost = event.target.id
 
-  const handleClick = event => {
     axios({
-      url: `${apiUrl}/posts`,
-      method: 'GET',
+      url: `${apiUrl}/posts/${thePost}`,
+      method: 'DELETE',
       headers: {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => setPosts(res.data.posts))
+      .then(res => setDeletedPost(true))
       .catch(console.error)
   }
 
@@ -25,16 +25,21 @@ const Post = ({ user }) => {
       <div className="card text-center">
         <div className="card-header">
           <div className="post-avatar">
-            <h1>Avatar goes here</h1>
+            <Avatar src='AccountCircleIcon'></Avatar>
           </div>
         </div>
         <div className="card-body">
           <h5 className="card-title"></h5>
           <p className="card-text">{post.content}</p>
-          <a href="#" className="btn btn-primary">@{user.email}</a>
+          <a href="#" className="btn btn-primary">@{postOwner}</a>
+          {user._id === post.owner ? <button
+            className="btn btn-danger"
+            id={post._id}
+            onClick={handleDelete}>Delete</button> : ''}
+          {user._id === post.owner ? <a>Edit</a> : ''}
         </div>
         <div className="card-footer text-muted">
-          12hrs ago
+          {post.createdAt}
         </div>
       </div>
     </div>
@@ -42,9 +47,8 @@ const Post = ({ user }) => {
 
   return (
     <div>
-      <button onClick={handleClick}>See the tea</button>
       <ul>
-        {postsJsx}
+        {postsJsx.reverse()}
       </ul>
     </div>
   )

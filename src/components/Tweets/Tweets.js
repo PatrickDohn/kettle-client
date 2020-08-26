@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './tweet.css'
 import axios from 'axios'
+import { Avatar } from '@material-ui/core'
 
 import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Tweets = ({ user }) => {
+const Tweets = ({ user, postId, setPostId, setPostOwner }) => {
   const [post, setPost] = useState('')
-  const [postId, setPostId] = useState(null)
 
   const handleChange = event => {
     event.persist()
@@ -34,19 +34,18 @@ const Tweets = ({ user }) => {
       data: { post }
     })
       .then(res => setPostId(res.data.post._id))
+      .then(() => setPost(''))
+      .then(() => setPostOwner(user.email))
       .catch(console.error)
-  }
-
-  if (postId) {
-    console.log('It worked!')
   }
 
   return (
     <div className="tweets">
       <form onSubmit={handleSubmit}>
         <div className="tweet-input">
-          <p>Avatar goes here</p>
+          <Avatar src='AccountCircleIcon'></Avatar>
           <input
+            id="tweetField"
             placeholder="What's the tea?"
             type="text"
             name="content"
