@@ -48,7 +48,7 @@ const Profile = (props, user) => {
   //   </li>
   // ))
   return (
-    <Fragment>
+    <Fragment className="app">
       <Home user={user} />
     </Fragment>
   )
