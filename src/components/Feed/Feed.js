@@ -9,10 +9,10 @@ function Feed ({ user }) {
       { /* Header */ }
       <div className="feed-header">
         <h2 className="topFeed">Home</h2>
+        <Tweets user={user}/>
       </div>
 
       { /* Tweets */ }
-      <Tweets user={user}/>
 
       { /* Posts */ }
 

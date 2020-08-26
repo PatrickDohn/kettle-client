@@ -1,5 +1,5 @@
 .sidebar {
-  border-right: 5px solid #344a57;
+  border-right: 1px solid #344a57;
   flex: 0.3;
   display:flex;
   flex-direction: column;
@@ -9,11 +9,24 @@
   padding-right: 20px;
 }
 
+.home-icon {
+  margin-right: 10px;
+}
+
 .homeLinks{
   border: none;
   background-color: transparent;
   padding-top: 30px;
   padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+
+}
+.homeLinks:hover {
+  background-color: #344a57;
+  color: white;
+  transition: color 100ms ease-out;
+
 }
 
 .twitter-icon {

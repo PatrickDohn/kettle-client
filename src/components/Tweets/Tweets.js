@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './tweet.css'
 import axios from 'axios'
+import { Avatar } from '@material-ui/core'
 
 import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
@@ -45,7 +46,7 @@ const Tweets = ({ user }) => {
     <div className="tweets">
       <form onSubmit={handleSubmit}>
         <div className="tweet-input">
-          <p>Avatar goes here</p>
+          <Avatar src='AccountCircleIcon'></Avatar>
           <input
             placeholder="What's the tea?"
             type="text"
