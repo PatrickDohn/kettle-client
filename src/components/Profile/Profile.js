@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 // import { Route } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 // import Home from '../Home/Home'
 // import Tweets from '../Tweets/Tweets'
-import axios from 'axios'
-import apiUrl from '../../apiConfig'
-import { Link } from 'react-router-dom'
-import Sidebar from '../Sidebar/Sidebar'
-import Post from '../Post/Post'
-
+// import axios from 'axios'
+// import apiUrl from '../../apiConfig'
+// import { Link } from 'react-router-dom'
+import Home from '../Home/Home'
 // class Profile extends Component {
 //   constructor (props, user) {
 //     super(props)
@@ -31,27 +29,28 @@ import Post from '../Post/Post'
 //     )
 //   }
 // }
-const Profile = props => {
-  const [post, setPost] = useState([])
-  useEffect(() => {
-    axios(`${apiUrl}/profile`)
-      .then(res => setPost(res.data.post))
-      .catch(console.error)
-  }, [])
-  const postJsx = post.map(post => (
-    <li key={post._id}>
-      <Link to={`/profile/${post._id}`}>{post.content}</Link>
-    </li>
-  ))
+const Profile = (props, user) => {
+  // const [post, setPost] = useState([])
+  // const handleClick = event => {
+  //   axios({
+  //     url: `${apiUrl}/profile`,
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': `Token token=${user.token}`
+  //     }
+  //   })
+  //     .then(res => setPost(res.data.posts))
+  //     .catch(console.error)
+  // }
+  // const postJsx = post.map(post => (
+  //   <li key={post._id}>
+  //     <Link to={`/profile/${post._id}`}>{post.content}</Link>
+  //   </li>
+  // ))
   return (
-    <div>
-      <Sidebar />
-      <Post />
-      <h1>its working</h1>
-      <ul>
-        {postJsx}
-      </ul>
-    </div>
+    <Fragment>
+      <Home user={user} />
+    </Fragment>
   )
 }
 export default Profile
