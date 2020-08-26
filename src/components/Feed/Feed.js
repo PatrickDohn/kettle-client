@@ -8,8 +8,33 @@ import apiUrl from '../../apiConfig'
 const Feed = ({ user }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
+  const [deletedPost, setDeletedPost] = useState(false)
+
+  if (user) {
+    axios({
+      url: `${apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }
 
   if (postId) {
+    axios({
+      url: `${apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }
+
+  if (deletedPost) {
     axios({
       url: `${apiUrl}/posts`,
       method: 'GET',
@@ -41,6 +66,7 @@ const Feed = ({ user }) => {
       <Post
         posts={posts}
         setPosts={setPosts}
+        setDeletedPost={setDeletedPost}
         user={user}/>
     </div>
   )
