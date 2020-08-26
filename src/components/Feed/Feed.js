@@ -1,9 +1,9 @@
 import React from 'react'
 import './feed.css'
-import Tweets from './Tweets'
-import Post from './Post'
+import Tweets from '../Tweets/Tweets'
+import Post from '../Post/Post'
 
-function Feed () {
+function Feed ({ user }) {
   return (
     <div className="feed">
       { /* Header */ }
@@ -12,22 +12,11 @@ function Feed () {
       </div>
 
       { /* Tweets */ }
-      <Tweets />
+      <Tweets user={user}/>
 
       { /* Posts */ }
 
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post user={user}/>
     </div>
   )
 }

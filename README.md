@@ -5,7 +5,7 @@ This application is a social media platform inspired by Twitter. The idea is tha
 - [API Repo](#)
 - [Deployed API](#)
 - [Deployed Client](#)
-### Planning Story
+### Planning Story      
 ...
 
 ### User Stories

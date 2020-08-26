@@ -3,12 +3,6 @@ import { Route } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Home from '../Home/Home'
 
-const authenticatedOptions = (
-  <Route path='/home' render={() => (
-    <Home />
-  )} />
-)
-
 const unauthenticatedOptions = (
   <Fragment>
     <div className="jumbotron jumbotron-fluid">
@@ -26,7 +20,9 @@ const FrontPage = ({ user }) => (
   <div>
     <div className="ml-auto">
       { user && <span className="navbar-text mr-2">Whats on your mind? {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
+      { user ? <Route path='/home' render={() => (
+        <Home user={user} />
+      )} /> : unauthenticatedOptions }
     </div>
   </div>
 )

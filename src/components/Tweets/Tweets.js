@@ -1,18 +1,62 @@
-import React from 'react'
-import './tweets.css'
+import React, { useState } from 'react'
+import './tweet.css'
+import axios from 'axios'
+
+import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-function Tweets () {
+const Tweets = ({ user }) => {
+  const [post, setPost] = useState('')
+  const [postId, setPostId] = useState(null)
+
+  const handleChange = event => {
+    event.persist()
+
+    setPost(prevPost => {
+      const updatedPost = { [event.target.name]: event.target.value }
+
+      const editedPost = Object.assign({}, prevPost, updatedPost)
+
+      return editedPost
+    })
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    axios({
+      url: `${apiUrl}/new-post`,
+      method: 'POST',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      },
+      data: { post }
+    })
+      .then(res => setPostId(res.data.post._id))
+      .catch(console.error)
+  }
+
+  if (postId) {
+    console.log('It worked!')
+  }
+
   return (
     <div className="tweets">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="tweet-input">
           <p>Avatar goes here</p>
-          <input placeholder="What's the tea?" type="text"/>
+          <input
+            placeholder="What's the tea?"
+            type="text"
+            name="content"
+            value={post.content}
+            onChange={handleChange} />
         </div>
+        <button
+          className="tweet-btn"
+          type="submit">Serve</button>
       </form>
-      <button className="tweet-btn">Tweet</button>
     </div>
   )
 }
