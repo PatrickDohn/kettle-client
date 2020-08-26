@@ -10,18 +10,6 @@ const Feed = ({ user }) => {
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
 
-  if (user) {
-    axios({
-      url: `${apiUrl}/posts`,
-      method: 'GET',
-      headers: {
-        'Authorization': `Token token=${user.token}`
-      }
-    })
-      .then(res => setPosts(res.data.posts))
-      .catch(console.error)
-  }
-
   if (postId) {
     axios({
       url: `${apiUrl}/posts`,
@@ -31,6 +19,7 @@ const Feed = ({ user }) => {
       }
     })
       .then(res => setPosts(res.data.posts))
+      .then(() => setPostId(null))
       .catch(console.error)
   }
 
@@ -43,6 +32,7 @@ const Feed = ({ user }) => {
       }
     })
       .then(res => setPosts(res.data.posts))
+      .then(() => setDeletedPost(false))
       .catch(console.error)
   }
 
@@ -51,17 +41,11 @@ const Feed = ({ user }) => {
       { /* Header */ }
       <div className="feed-header">
         <h2 className="topFeed">Home</h2>
-        <Tweets user={user}/>
+        <Tweets
+          postId={postId}
+          setPostId={setPostId}
+          user={user}/>
       </div>
-
-      { /* Tweets */ }
-      <Tweets
-        postId={postId}
-        setPostId={setPostId}
-        user={user}/>
-
-
-      { /* Posts */ }
 
       <Post
         posts={posts}
