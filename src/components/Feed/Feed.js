@@ -10,6 +10,18 @@ const Feed = ({ user }) => {
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
 
+  if (user) {
+    axios({
+      url: `${apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .catch(console.error)
+  }
+
   if (postId) {
     axios({
       url: `${apiUrl}/posts`,
