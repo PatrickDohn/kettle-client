@@ -16,18 +16,7 @@ function Feed ({ user }) {
 
       { /* Posts */ }
 
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post user={user}/>
     </div>
   )
 }
