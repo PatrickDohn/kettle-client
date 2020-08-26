@@ -20,18 +20,6 @@ const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
       .catch(console.error)
   }
 
-  const timestamp = Date(document.data.event_date)
-
-
-  const formattedTimestamp = Intl.DateTimeFormat('en-US ', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-    hour: 'numeric',
-    minute: '2-digit',
-    second: '2-digit'
-  }).format(timestamp)
-
   const postsJsx = posts.map(post => (
     <div key={post._id} className="post">
       <div className="card text-center">
