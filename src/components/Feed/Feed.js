@@ -26,6 +26,7 @@ const Feed = ({ user }) => {
       { /* Header */ }
       <div className="feed-header">
         <h2 className="topFeed">Home</h2>
+        <Tweets user={user}/>
       </div>
 
       { /* Tweets */ }
@@ -33,6 +34,7 @@ const Feed = ({ user }) => {
         postId={postId}
         setPostId={setPostId}
         user={user}/>
+
 
       { /* Posts */ }
 

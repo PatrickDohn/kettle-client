@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-// import { Avatar } from '@material-ui/core'
+import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
 
@@ -36,7 +36,7 @@ const Post = ({ user, posts, setPosts }) => {
       <div className="card text-center">
         <div className="card-header">
           <div className="post-avatar">
-            <h1>Avatar goes here</h1>
+            <Avatar src='AccountCircleIcon'></Avatar>
           </div>
         </div>
         <div className="card-body">
@@ -59,7 +59,7 @@ const Post = ({ user, posts, setPosts }) => {
     <div>
       <button onClick={handleClick}>See the tea</button>
       <ul>
-        {postsJsx}
+        {postsJsx.reverse()}
       </ul>
     </div>
   )
