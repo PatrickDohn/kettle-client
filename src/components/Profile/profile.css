@@ -1,13 +1,29 @@
-body {
-  background: linear-gradient(0.25turn, #d2d67c, #FFFDD0);
-  color: #252834;
+.feed {
+  flex: 0.6;
+  border-right: 1px solid #333;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.app {
-  display: flex;
-  height: 100vh;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 10px;
+
+.feed::-webkit-scrolbar {
+  display: none;
+}
+
+.feed-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid #333;
+  padding: 15px 20px;
+  background-color: #344a57;
+  opacity: 0.9;
+  color: white;
+}
+
+.topFeed {
+  font-size: 20px;
+  font-weight: 800;
+  border-bottom: 1px solid #50b7f5;
 }

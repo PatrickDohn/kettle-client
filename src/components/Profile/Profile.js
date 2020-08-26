@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { useState } from 'react'
 // import { Route } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 // import Home from '../Home/Home'
 // import Tweets from '../Tweets/Tweets'
-// import axios from 'axios'
-// import apiUrl from '../../apiConfig'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 // import { Link } from 'react-router-dom'
-import Home from '../Home/Home'
+import Tweets from '../Tweets/Tweets'
+import Post from '../Post/Post'
 // class Profile extends Component {
 //   constructor (props, user) {
 //     super(props)
@@ -30,27 +31,54 @@ import Home from '../Home/Home'
 //   }
 // }
 const Profile = (props, user) => {
-  // const [post, setPost] = useState([])
-  // const handleClick = event => {
-  //   axios({
-  //     url: `${apiUrl}/profile`,
-  //     method: 'GET',
-  //     headers: {
-  //       'Authorization': `Token token=${user.token}`
-  //     }
-  //   })
-  //     .then(res => setPost(res.data.posts))
-  //     .catch(console.error)
-  // }
-  // const postJsx = post.map(post => (
-  //   <li key={post._id}>
-  //     <Link to={`/profile/${post._id}`}>{post.content}</Link>
-  //   </li>
-  // ))
+  const [postId, setPostId] = useState(null)
+  const [posts, setPosts] = useState([])
+  const [deletedPost, setDeletedPost] = useState(false)
+
+  if (postId) {
+    axios({
+      url: `${apiUrl}/profile`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .then(() => setPostId(null))
+      .catch(console.error)
+  }
+
+  if (deletedPost) {
+    axios({
+      url: `${apiUrl}/profile`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPosts(res.data.posts))
+      .then(() => setDeletedPost(false))
+      .catch(console.error)
+  }
+
   return (
-    <Fragment className="app">
-      <Home user={user} />
-    </Fragment>
+    <div className="feed">
+      { /* Header */ }
+      <div className="feed-header">
+        <h2 className="topFeed">Home</h2>
+        <Tweets
+          postId={postId}
+          setPostId={setPostId}
+          user={user}/>
+      </div>
+
+      <Post
+        posts={posts}
+        setPosts={setPosts}
+        setDeletedPost={setDeletedPost}
+        user={user}/>
+    </div>
   )
 }
+
 export default Profile
