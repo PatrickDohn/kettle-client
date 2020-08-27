@@ -1,3 +1,25 @@
 .post {
-  margin-right: 30px;
+  margin-right: 40px;
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  background-color: #d2d67c;
+}
+
+.post-footer {
+  background-color: #d2d67c;
+}
+
+.post-body {
+  background-color: #FFFDD0;
+}
+
+.postLink {
+  color: black;
+}
+
+.postLink:hover {
+  color: white;
 }
