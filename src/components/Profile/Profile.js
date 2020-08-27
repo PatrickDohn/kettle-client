@@ -8,6 +8,7 @@ import apiUrl from '../../apiConfig'
 // import { Link } from 'react-router-dom'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
+import Sidebar from '../Sidebar/Sidebar'
 
 const Profile = ({ user }) => {
   const [postId, setPostId] = useState(null)
@@ -49,12 +50,12 @@ const Profile = ({ user }) => {
       .then(() => setDeletedPost(false))
       .catch(console.error)
   }
-  console.log(user)
+  console.log('this is user in profile', user)
   return (
     <div className="feed">
       { /* Header */ }
       <div className="feed-header">
-        <h2 className="topFeed">Home</h2>
+        <h2 className="topFeed">My Profile</h2>
         <Tweets
           postId={postId}
           setPostId={setPostId}
@@ -66,6 +67,9 @@ const Profile = ({ user }) => {
         setPosts={setPosts}
         setDeletedPost={setDeletedPost}
         user={user}/>
+      <div className="sidebar app">
+        <Sidebar />
+      </div>
     </div>
   )
 }

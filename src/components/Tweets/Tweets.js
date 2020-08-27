@@ -25,7 +25,7 @@ const Tweets = ({ user, postId, setPostId, setPostOwner }) => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log(user)
+    console.log('this is user in tweets ', user)
     axios({
       url: `${apiUrl}/new-post`,
       method: 'POST',
