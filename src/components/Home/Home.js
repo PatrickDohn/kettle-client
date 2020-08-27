@@ -7,7 +7,7 @@ function Home ({ user }) {
   return (
     <div className='app'>
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar user={user} />
 
       {/* Feed */}
       <Feed user={user}/>

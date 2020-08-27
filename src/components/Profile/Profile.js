@@ -49,10 +49,10 @@ const Profile = ({ user }) => {
       .then(() => setDeletedPost(false))
       .catch(console.error)
   }
-
+  console.log('this is user in profile', user)
   return (
     <div className="app">
-      <Sidebar />
+      <Sidebar user={user} />
       <div className="feed">
         <div className="feed-header">
           <h2 className="topFeed">My Profile</h2>
