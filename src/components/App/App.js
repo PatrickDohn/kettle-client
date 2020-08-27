@@ -43,6 +43,9 @@ class App extends Component {
             message={msgAlert.message}
           />
         ))}
+        <AuthenticatedRoute user={user} path='/profile' render={() => (
+          <Profile msgAlert={this.msgAlert} user={user} />
+        )} />
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -55,9 +58,6 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/profile' render={() => (
-            <Profile msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
