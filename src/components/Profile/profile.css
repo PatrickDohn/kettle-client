@@ -1,0 +1,29 @@
+.feed {
+  flex: 0.6;
+  border-right: 1px solid #333;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.feed::-webkit-scrolbar {
+  display: none;
+}
+
+.feed-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid #333;
+  padding: 15px 20px;
+  background-color: #344a57;
+  opacity: 0.9;
+  color: white;
+}
+
+.topFeed {
+  font-size: 20px;
+  font-weight: 800;
+  border-bottom: 1px solid #50b7f5;
+}

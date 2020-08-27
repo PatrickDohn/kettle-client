@@ -28,17 +28,20 @@ const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
           <div className="post-avatar">
             <Avatar src='AccountCircleIcon'></Avatar>
             <a className="postLink" href="#">@{postOwner}</a>
+
           </div>
         </div>
         <div className="card-body post-body">
           <h5 className="card-title"></h5>
           <p className="card-text">{post.content}</p>
+
           {user._id === post.owner ? <button
             className="btn btn-danger"
             id={post._id}
             onClick={handleDelete}>Delete</button> : ''}
           {user._id === post.owner ? <a>Edit</a> : ''}
         </div>
+
         <div className="card-footer text-muted post-footer">
           <p>{moment(post.createdAt).startOf('hour').fromNow()}</p>
         </div>
