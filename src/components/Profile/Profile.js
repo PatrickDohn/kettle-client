@@ -52,7 +52,7 @@ const Profile = ({ user }) => {
 
   return (
     <div className="app">
-      <Sidebar />
+      <Sidebar user={user} />
       <div className="feed">
         <div className="feed-header">
           <h2 className="topFeed">My Profile</h2>

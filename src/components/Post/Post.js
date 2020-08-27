@@ -5,6 +5,8 @@ import apiUrl from '../../apiConfig'
 import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
+import Edit from '../Edit/Edit'
+
 import moment from 'moment'
 
 const Post = ({ user, posts, setPosts, setDeletedPost }) => {
@@ -39,7 +41,8 @@ const Post = ({ user, posts, setPosts, setDeletedPost }) => {
             className="btn btn-danger"
             id={post._id}
             onClick={handleDelete}>Delete</button> : ''}
-          {user._id === post.owner ? <a>Edit</a> : ''}
+          {user._id === post.owner
+            ? <Edit /> : ''}
         </div>
 
         <div className="card-footer text-muted post-footer">

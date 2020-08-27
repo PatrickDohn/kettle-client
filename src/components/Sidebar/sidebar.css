@@ -1,10 +1,16 @@
 .sidebar {
   border-right: 1px solid #344a57;
-  flex: 0.3;
+  flex: 0.2;
   display:flex;
   flex-direction: column;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    flex: 0.1;
+  }
 }
 
 .home-icon {

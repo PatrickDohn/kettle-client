@@ -3,13 +3,17 @@ import { withRouter } from 'react-router-dom'
 import SidebarOption from '../SidebarOptions/SidebarOptions'
 import './sidebar.css'
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
-import Button from 'react-bootstrap/Button'
 import HomeIcon from '@material-ui/icons/Home'
 import LockIcon from '@material-ui/icons/Lock'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import SidebarTweet from '../SidebarTweetBtn/SidebarTweetBtn'
 
 class Sidebar extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { user: this.props.user }
+  }
   nextPath (path) {
     this.props.history.push(path)
   }
@@ -34,7 +38,7 @@ class Sidebar extends React.Component {
           <ExitToAppIcon className="home-icon" />
           <SidebarOption text='Sign Out'/>
         </button>
-        <Button variant="outlined" className="sidebar-tweet">Tweet</Button>
+        <SidebarTweet user={ this.state.user } />
       </div>
     )
   }
