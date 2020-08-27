@@ -60,15 +60,6 @@ const Feed = ({ user }) => {
           user={user}/>
       </div>
 
-      { /* Tweets */ }
-
-      <Tweets
-        postId={postId}
-        setPostId={setPostId}
-        user={user}/>
-
-      { /* Posts */ }
-
       <Post
         posts={posts}
         setPosts={setPosts}
