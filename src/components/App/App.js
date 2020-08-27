@@ -11,6 +11,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Profile from '../Profile/Profile'
 import Friend from '../Friend/Friend'
+import UserList from '../Users/UserList'
 
 class App extends Component {
   constructor () {
