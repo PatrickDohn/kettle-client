@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Avatar } from '@material-ui/core'
@@ -8,7 +9,7 @@ import Edit from '../Edit/Edit'
 
 import moment from 'moment'
 
-const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
+const Post = ({ user, posts, setPosts, setDeletedPost }) => {
   const handleDelete = event => {
     const thePost = event.target.id
 
@@ -29,8 +30,7 @@ const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
         <div className="card-header post-header">
           <div className="post-avatar">
             <Avatar src='AccountCircleIcon'></Avatar>
-            <a className="postLink" href="#">@{postOwner}</a>
-
+            <Link to={`/profile/${post.owner}`}>{post.ownerName}</Link>
           </div>
         </div>
         <div className="card-body post-body">

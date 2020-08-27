@@ -7,14 +7,14 @@ import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Tweets = ({ user, postId, setPostId, setPostOwner }) => {
+const Tweets = ({ user, postId, setPostId }) => {
   const [post, setPost] = useState('')
 
   const handleChange = event => {
     event.persist()
 
     setPost(prevPost => {
-      const updatedPost = { [event.target.name]: event.target.value }
+      const updatedPost = { [event.target.name]: event.target.value, ownerName: user.email }
 
       const editedPost = Object.assign({}, prevPost, updatedPost)
 
@@ -40,7 +40,6 @@ const Tweets = ({ user, postId, setPostId, setPostOwner }) => {
     })
       .then(res => setPostId(res.data.post._id))
       .then(() => setPost(''))
-      .then(() => setPostOwner(user.email))
       .then(() => cancelCourse())
       .catch(console.error)
   }

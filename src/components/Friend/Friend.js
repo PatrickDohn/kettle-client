@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
-// import { Route } from 'react-router-dom'
-// import Button from 'react-bootstrap/Button'
-// import Home from '../Home/Home'
+import { withRouter } from 'react-router'
+
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-// import { Link } from 'react-router-dom'
-import Tweets from '../Tweets/Tweets'
+
 import Post from '../Post/Post'
 import Sidebar from '../Sidebar/Sidebar'
 
-const Profile = ({ user }) => {
+const Friend = ({ user, match }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
 
+  console.log('THIS IS FOR THE FRIENDS CALL', match.params.id)
+
   useEffect(() => {
     axios({
-      url: `${apiUrl}/profile`,
+      url: `${apiUrl}/profile/${match.params.id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
@@ -24,9 +24,10 @@ const Profile = ({ user }) => {
       .then(res => setPosts(res.data.posts))
       .catch(console.error)
   }, [])
+
   if (postId) {
     axios({
-      url: `${apiUrl}/profile`,
+      url: `${apiUrl}/profile/${match.params.id}`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${user.token}`
@@ -39,7 +40,7 @@ const Profile = ({ user }) => {
 
   if (deletedPost) {
     axios({
-      url: `${apiUrl}/profile`,
+      url: `${apiUrl}/profile/${match.params.id}`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${user.token}`
@@ -55,11 +56,7 @@ const Profile = ({ user }) => {
       <Sidebar />
       <div className="feed">
         <div className="feed-header">
-          <h2 className="topFeed">My Profile</h2>
-          <Tweets
-            postId={postId}
-            setPostId={setPostId}
-            user={user}/>
+          <h2 className="topFeed">Friend`s Profile</h2>
         </div>
         <Post
           posts={posts}
@@ -71,4 +68,4 @@ const Profile = ({ user }) => {
   )
 }
 
-export default Profile
+export default withRouter(Friend)
