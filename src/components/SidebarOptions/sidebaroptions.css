@@ -14,6 +14,12 @@
   margin-right: 20px;
 }
 
+@media (max-width: 800px) {
+  .sidebarText {
+    display: none;
+  }
+}
+
 .sidebarOption__active {
   color: red;
 }
