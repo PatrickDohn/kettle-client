@@ -49,7 +49,7 @@ const Profile = ({ user }) => {
       .then(() => setDeletedPost(false))
       .catch(console.error)
   }
-  console.log('this is user in profile', user)
+
   return (
     <div className="app">
       <Sidebar user={user} />
