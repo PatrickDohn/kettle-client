@@ -7,11 +7,8 @@ import HomeIcon from '@material-ui/icons/Home'
 import LockIcon from '@material-ui/icons/Lock'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-<<<<<<< HEAD
 import SidebarTweet from '../SidebarTweetBtn/SidebarTweetBtn'
-=======
 import FaceIcon from '@material-ui/icons/Face'
->>>>>>> userpage created
 
 class Sidebar extends React.Component {
   constructor (props) {

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './tweet.css'
 import axios from 'axios'
 import { Avatar } from '@material-ui/core'
-import { Button } from 'react-bootstrap'
 
 import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
@@ -23,14 +22,9 @@ const Tweets = ({ user, postId, setPostId }) => {
     })
   }
 
-  const cancelCourse = () => {
-    document.getElementById('create-post-form').reset()
-  }
-
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log('this is user in tweets ', user)
     axios({
       url: `${apiUrl}/new-post`,
       method: 'POST',
@@ -41,13 +35,12 @@ const Tweets = ({ user, postId, setPostId }) => {
     })
       .then(res => setPostId(res.data.post._id))
       .then(() => setPost(''))
-      .then(() => cancelCourse())
       .catch(console.error)
   }
 
   return (
     <div className="tweets">
-      <form id="create-post-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="tweet-input">
           <Avatar src='AccountCircleIcon'></Avatar>
           <input
@@ -58,9 +51,9 @@ const Tweets = ({ user, postId, setPostId }) => {
             value={post.content}
             onChange={handleChange} />
         </div>
-        <Button
+        <button
           className="tweet-btn"
-          type="submit">Serve</Button>
+          type="submit">Serve</button>
       </form>
     </div>
   )
