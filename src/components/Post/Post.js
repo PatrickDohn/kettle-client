@@ -9,7 +9,7 @@ import Edit from '../Edit/Edit'
 
 import moment from 'moment'
 
-const Post = ({ user, posts, setPosts, setDeletedPost }) => {
+const Post = ({ user, posts, setPosts, setDeletedPost, setPostId }) => {
   const handleDelete = event => {
     const thePost = event.target.id
 
@@ -42,7 +42,11 @@ const Post = ({ user, posts, setPosts, setDeletedPost }) => {
             id={post._id}
             onClick={handleDelete}>Delete</button> : ''}
           {user._id === post.owner
-            ? <Edit /> : ''}
+            ? <Edit
+              setPostId={setPostId}
+              post={post}
+              editPost={post._id}
+              user={user} /> : ''}
         </div>
 
         <div className="card-footer text-muted post-footer">
