@@ -12,8 +12,10 @@ const unauthenticatedOptions = (
         <p className="lead frontPageSubTitle anim-typewriter">Its tea time</p>
       </div>
     </div>
-    <Button href="#sign-up">Sign Up</Button>
-    <Button href="#sign-in">Sign In</Button>
+    <div className='authButton'>
+      <Button variant='secondary' block href="#sign-up">Sign Up</Button>
+      <Button variant='secondary' block href="#sign-in">Sign In</Button>
+    </div>
   </Fragment>
 )
 

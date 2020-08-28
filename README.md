@@ -3,7 +3,7 @@ This application is a social media platform inspired by Twitter. The idea is tha
 
 ## Important Links
 - [API Repo](https://github.com/C2C-NeedABr/kettle-api)
-- [Deployed API](#)
+- [Deployed API](https://fathomless-castle-00355.herokuapp.com/)
 - [Deployed Client](#)
 
 ### Planning Story
