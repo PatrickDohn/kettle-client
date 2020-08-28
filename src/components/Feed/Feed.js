@@ -60,6 +60,7 @@ const Feed = ({ user, postId, setPostId }) => {
       </div>
 
       <Post
+        setPostId={setPostId}
         posts={posts}
         setPosts={setPosts}
         setDeletedPost={setDeletedPost}
