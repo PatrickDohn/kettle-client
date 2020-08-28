@@ -1,6 +1,6 @@
 {
   "name": "kettle-client",
-  "homepage": "https://github.com/C2C-NeedABr/kettle-client",
+  "homepage": "https://c2c-needabr.github.io/kettle-client/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

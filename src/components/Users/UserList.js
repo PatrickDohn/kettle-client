@@ -38,7 +38,10 @@ class UserList extends Component {
 
     return (
       <div className='app'>
-        <Sidebar user={this.props.user}/>
+        <Sidebar
+          user={this.props.user}
+          setPostId={this.props.setPostId}
+        />
         <ul>
           {users}
         </ul>
