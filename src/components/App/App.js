@@ -9,6 +9,9 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 // import Home from '../Home/Home'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Profile from '../Profile/Profile'
+import Friend from '../Friend/Friend'
+import UserList from '../Users/UserList'
 
 class App extends Component {
   constructor () {
@@ -42,6 +45,12 @@ class App extends Component {
             message={msgAlert.message}
           />
         ))}
+        <AuthenticatedRoute user={user} exact path='/profile' render={() => (
+          <Profile msgAlert={this.msgAlert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/profile/:id' render={() => (
+          <Friend msgAlert={this.msgAlert} user={user} />
+        )} />
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -54,6 +63,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/users' render={() => (
+            <UserList msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

@@ -1,11 +1,16 @@
 .feed {
-  flex: 0.6;
+  flex: 0.7;
   border-right: 1px solid #333;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
+@media (max-width: 800px) {
+  .feed {
+    flex: 1;
+  }
+}
 
 .feed::-webkit-scrolbar {
   display: none;
@@ -25,5 +30,5 @@
 .topFeed {
   font-size: 20px;
   font-weight: 800;
-  border-bottom: 1px solid #50b7f5;
+  border-bottom: 1px solid #333;
 }

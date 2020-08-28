@@ -1,11 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Avatar } from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button } from 'react-bootstrap'
 import './post.css'
+import Edit from '../Edit/Edit'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
-const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
+import moment from 'moment'
+
+const Post = ({ user, posts, setPosts, setDeletedPost, setPostId }) => {
   const handleDelete = event => {
     const thePost = event.target.id
 
@@ -22,24 +28,36 @@ const Post = ({ user, posts, setPosts, setDeletedPost, postOwner }) => {
 
   const postsJsx = posts.map(post => (
     <div key={post._id} className="post">
-      <div className="card text-center">
-        <div className="card-header">
+      <div className="card text-center post-content">
+        <div className="card-header post-header">
           <div className="post-avatar">
             <Avatar src='AccountCircleIcon'></Avatar>
+            <Link className="postLink" to={`/profile/${post.owner}`}>{post.ownerName}</Link>
           </div>
         </div>
-        <div className="card-body">
+        <div className="card-body post-body">
           <h5 className="card-title"></h5>
           <p className="card-text">{post.content}</p>
-          <a href="#" className="btn btn-primary">@{postOwner}</a>
-          {user._id === post.owner ? <button
-            className="btn btn-danger"
-            id={post._id}
-            onClick={handleDelete}>Delete</button> : ''}
-          {user._id === post.owner ? <a>Edit</a> : ''}
+
+          <div className="btn-body">
+            {user._id === post.owner ? <Button
+              className="dlt-btn"
+              size="sm"
+              variant="outline-danger"
+              id={post._id}
+              onClick={handleDelete}><DeleteForeverIcon /></Button> : ''}
+            {user._id === post.owner
+              ? <Edit
+                className="edit-content"
+                setPostId={setPostId}
+                post={post}
+                editPost={post._id}
+                user={user} /> : ''}
+          </div>
         </div>
-        <div className="card-footer text-muted">
-          {post.createdAt}
+
+        <div className="card-footer text-muted post-footer">
+          <p>{moment(post.createdAt).startOf('hour').fromNow()}</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
 body {
   background: linear-gradient(0.25turn, #d2d67c, #FFFDD0);
   color: #252834;
+  font-family: 'Inconsolata', monospace;
 }
 
 .app {

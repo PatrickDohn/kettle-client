@@ -1,12 +1,22 @@
 .sidebar {
   border-right: 1px solid #344a57;
-  flex: 0.3;
+  flex: 0.2;
   display:flex;
   flex-direction: column;
-  min-width: 250px;
-  margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    flex: 0.1;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 20px;
+  }
 }
 
 .home-icon {
@@ -32,9 +42,19 @@
 .twitter-icon {
   color: white !important;
   font-size: 30px !important;
-  margin-left: 20px;
-  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-top: 15px;
   transform: rotate(-15deg);
+}
+
+.tweet-header {
+  background-color: #344a57;
+  opacity: 0.9;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .sidebar-tweet {
@@ -45,5 +65,21 @@
   text-transform: inherit;
   height: 50px !important;
   margin-top: 20px !important;
-
 }
+
+@media (max-width: 600px) {
+    .sidebar-tweet {
+      margin-right: 40px;
+    }
+  }
+
+
+
+.short-text {
+  display: none;
+}
+
+@media (max-width: 600px) {
+    .short-text { display: inline-block; }
+    .full-text { display: none;}
+  }

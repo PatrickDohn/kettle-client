@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import './feed.css'
+// import { Route } from 'react-router-dom'
+// import Button from 'react-bootstrap/Button'
+// import Home from '../Home/Home'
+import axios from 'axios'
+import './profile.css'
+import apiUrl from '../../apiConfig'
+// import { Link } from 'react-router-dom'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
-import axios from 'axios'
-import apiUrl from '../../apiConfig'
+import Sidebar from '../Sidebar/Sidebar'
 
-const Feed = ({ user, postId, setPostId }) => {
+const Profile = ({ user }) => {
+  const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
-  const [postOwner, setPostOwner] = useState('anon')
   const [deletedPost, setDeletedPost] = useState(false)
 
   useEffect(() => {
     axios({
-      url: `${apiUrl}/posts`,
+      url: `${apiUrl}/profile`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
@@ -20,10 +25,9 @@ const Feed = ({ user, postId, setPostId }) => {
       .then(res => setPosts(res.data.posts))
       .catch(console.error)
   }, [])
-
   if (postId) {
     axios({
-      url: `${apiUrl}/posts`,
+      url: `${apiUrl}/profile`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${user.token}`
@@ -36,7 +40,7 @@ const Feed = ({ user, postId, setPostId }) => {
 
   if (deletedPost) {
     axios({
-      url: `${apiUrl}/posts`,
+      url: `${apiUrl}/profile`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${user.token}`
@@ -48,26 +52,24 @@ const Feed = ({ user, postId, setPostId }) => {
   }
 
   return (
-    <div className="feed">
-      { /* Header */ }
-      <div className="feed-header">
-        <h2 className="topFeed">Home</h2>
-        <Tweets
-          postId={postId}
-          setPostId={setPostId}
-          setPostOwner={setPostOwner}
+    <div className="app">
+      <Sidebar user={user} />
+      <div className="feed">
+        <div className="feed-header">
+          <h2 className="topFeed">My Profile</h2>
+          <Tweets
+            postId={postId}
+            setPostId={setPostId}
+            user={user}/>
+        </div>
+        <Post
+          posts={posts}
+          setPosts={setPosts}
+          setDeletedPost={setDeletedPost}
           user={user}/>
       </div>
-
-      <Post
-        setPostId={setPostId}
-        posts={posts}
-        setPosts={setPosts}
-        setDeletedPost={setDeletedPost}
-        postOwner={postOwner}
-        user={user}/>
     </div>
   )
 }
 
-export default Feed
+export default Profile

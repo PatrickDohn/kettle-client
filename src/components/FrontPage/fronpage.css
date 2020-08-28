@@ -1,3 +1,9 @@
+.authButton {
+  margin: auto;
+  width: 50%;
+
+}
+
 .jumbotron {
   background-image: url(https://images.unsplash.com/photo-1531969179221-3946e6b5a5e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60);
   background-repeat: no-repeat;
@@ -11,30 +17,28 @@
 
 
 .frontPageTitle {
-
 }
 
 .frontPageSubTitle {
-  position: relative;
+  text-align: left;
   top: 50%;
-  width: 24em;
-  margin: 0 auto;
+  width: 5em;
   border-right: 2px solid rgba(255,255,255,.75);
   font-size: 130%;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   transform: translateY(-20%);
 }
 
 .anim-typewriter{
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
+  animation: typewriter 3s steps(44) 1s 1 normal both,
+             blinkTextCursor 400ms infinite normal;
 }
 
-@keyframes typewriter{
+@keyframes typewriter {
   from{width: 0;}
-  to{width: 24em;}
+  to{width: 5em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}
