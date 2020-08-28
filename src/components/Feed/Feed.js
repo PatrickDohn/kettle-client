@@ -56,7 +56,8 @@ const Feed = ({ user, postId, setPostId }) => {
           postId={postId}
           setPostId={setPostId}
           setPostOwner={setPostOwner}
-          user={user}/>
+          user={user}
+        />
       </div>
 
       <Post

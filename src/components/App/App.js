@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
@@ -13,64 +13,52 @@ import Profile from '../Profile/Profile'
 import Friend from '../Friend/Friend'
 import UserList from '../Users/UserList'
 
-class App extends Component {
-  constructor () {
-    super()
+const App = () => {
+  const [user, setUser] = useState(null)
+  const [msgAlerts, setMsgAlerts] = useState([])
+  const [postId, setPostId] = useState(null)
 
-    this.state = {
-      user: null,
-      msgAlerts: []
-    }
+  const clearUser = () => setUser(null)
+
+  const msgAlert = ({ heading, message, variant }) => {
+    setMsgAlerts([...msgAlerts, { heading, message, variant }])
   }
-
-  setUser = user => this.setState({ user })
-
-  clearUser = () => this.setState({ user: null })
-
-  msgAlert = ({ heading, message, variant }) => {
-    this.setState({ msgAlerts: [...this.state.msgAlerts, { heading, message, variant }] })
-  }
-
-  render () {
-    const { msgAlerts, user } = this.state
-
-    return (
-      <Fragment>
-        <FrontPage user={user} />
-        {msgAlerts.map((msgAlert, index) => (
-          <AutoDismissAlert
-            key={index}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-          />
-        ))}
-        <AuthenticatedRoute user={user} exact path='/profile' render={() => (
-          <Profile msgAlert={this.msgAlert} user={user} />
+  return (
+    <Fragment>
+      <FrontPage user={user} />
+      {msgAlerts.map((msgAlert, index) => (
+        <AutoDismissAlert
+          key={index}
+          heading={msgAlert.heading}
+          variant={msgAlert.variant}
+          message={msgAlert.message}
+        />
+      ))}
+      <AuthenticatedRoute user={user} exact path='/profile' render={() => (
+        <Profile user={user} />
+      )} />
+      <AuthenticatedRoute user={user} exact path='/profile/:id' render={() => (
+        <Friend user={user} />
+      )} />
+      <main className="container">
+        <Route path='/sign-up' render={() => (
+          <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />
-        <AuthenticatedRoute user={user} exact path='/profile/:id' render={() => (
-          <Friend msgAlert={this.msgAlert} user={user} />
+        <Route path='/sign-in' render={() => (
+          <SignIn msgAlert={msgAlert} setUser={setUser} />
         )} />
-        <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/users' render={() => (
-            <UserList msgAlert={this.msgAlert} user={user} />
-          )} />
-        </main>
-      </Fragment>
-    )
-  }
+        <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+          <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} path='/change-password' render={() => (
+          <ChangePassword msgAlert={msgAlert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} path='/users' render={() => (
+          <UserList user={user} postId={postId} setPostId={setPostId} />
+        )} />
+      </main>
+    </Fragment>
+  )
 }
 
 export default App

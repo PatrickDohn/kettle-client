@@ -10,8 +10,6 @@ import Sidebar from '../Sidebar/Sidebar'
 const Friend = ({ user, match }) => {
   const [posts, setPosts] = useState([])
 
-  console.log('THIS IS FOR THE FRIENDS CALL', match.params.id)
-
   useEffect(() => {
     axios({
       url: `${apiUrl}/profile/${match.params.id}`,

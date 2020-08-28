@@ -47,7 +47,7 @@ const Tweets = ({ user, postId, setPostId }) => {
     <div className="tweets">
       <form id="create-post-form" onSubmit={handleSubmit}>
         <div className="tweet-input">
-          <Avatar src='AccountCircleIcon'></Avatar>
+          <Avatar></Avatar>
           <input
             id="tweetField"
             placeholder="What's the tea?"

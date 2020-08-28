@@ -30,7 +30,7 @@ const Post = ({ user, posts, setPosts, setDeletedPost, setPostId }) => {
       <div className="card text-center post-content">
         <div className="card-header post-header">
           <div className="post-avatar">
-            <Avatar src='AccountCircleIcon'></Avatar>
+            <Avatar></Avatar>
             <Link className="postLink" to={`/profile/${post.owner}`}>{post.ownerName}</Link>
           </div>
         </div>
