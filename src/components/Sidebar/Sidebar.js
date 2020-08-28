@@ -24,7 +24,9 @@ class Sidebar extends React.Component {
   render () {
     return (
       <div className="sidebar">
-        <EmojiFoodBeverageIcon className="twitter-icon" />
+        <div className="tweet-header">
+          <EmojiFoodBeverageIcon className="twitter-icon" />
+        </div>
 
         <button className="homeLinks" onClick={() => this.nextPath('/home') }>
           <HomeIcon className="home-icon" />
