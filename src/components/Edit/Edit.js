@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import './edit.css'
 import { Button, Modal } from 'react-bootstrap'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import EditIcon from '@material-ui/icons/Edit'
 
 const Edit = ({ user, postId, setPostId, editPost }) => {
   const [show, setShow] = useState(false)
@@ -54,15 +56,15 @@ const Edit = ({ user, postId, setPostId, editPost }) => {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Edit
+      <Button variant="outline-primary" size="sm" onClick={handleShow}>
+        <EditIcon />
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header className="edit-header" closeButton>
+          <Modal.Title></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="edit-body">
           <form id="create-post-form" onSubmit={handleSubmit}>
             <div className="tweet-input">
               <input
@@ -83,7 +85,7 @@ const Edit = ({ user, postId, setPostId, editPost }) => {
               type="submit">Serve</button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="edit-footer">
         </Modal.Footer>
       </Modal>
     </div>

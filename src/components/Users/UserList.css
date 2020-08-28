@@ -1,3 +1,11 @@
 .contactCard {
   padding: 10px;
 }
+
+.user-link {
+  color: #344a57;
+}
+
+.user-link:hover {
+  color: white;
+}

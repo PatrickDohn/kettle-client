@@ -2,6 +2,8 @@
   margin-right: 40px;
 }
 
+
+
 .post-header {
   display: flex;
   align-items: flex-start;
@@ -16,8 +18,14 @@
   background-color: #FFFDD0;
 }
 
+.btn-body {
+  display: flex;
+  justify-content: center;
+}
+
+
 .postLink {
-  color: black;
+  color: #344a57;
 }
 
 .postLink:hover {
