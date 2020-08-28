@@ -5,7 +5,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
 
-const SidebarTweet = ({ user }) => {
+const SidebarTweet = ({ user, setPostId }) => {
   const [show, setShow] = useState(false)
 
   const handleClose = () => {
@@ -55,6 +55,18 @@ const SidebarTweet = ({ user }) => {
       .catch(console.error)
   }
 
+  const refreshFeed = event => {
+    axios({
+      url: `${apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setPostId(res.data.posts))
+      .catch(console.error)
+  }
+
   return (
     <div>
       <Button variant="outlined" className="sidebar-tweet" onClick={handleShow}>
@@ -79,15 +91,16 @@ const SidebarTweet = ({ user }) => {
                 onChange={handleChange} />
             </div>
             <Button
+              onClick={() => {
+                handleClose()
+                refreshFeed()
+              }}
               className="tweet-btn"
               type="submit">
               Serve</Button>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
         </Modal.Footer>
       </Modal>
     </div>
