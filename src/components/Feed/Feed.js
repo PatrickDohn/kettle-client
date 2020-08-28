@@ -5,8 +5,7 @@ import Post from '../Post/Post'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-const Feed = ({ user }) => {
-  const [postId, setPostId] = useState(null)
+const Feed = ({ user, postId, setPostId }) => {
   const [posts, setPosts] = useState([])
   const [postOwner, setPostOwner] = useState('anon')
   const [deletedPost, setDeletedPost] = useState(false)

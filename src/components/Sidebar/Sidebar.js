@@ -8,15 +8,12 @@ import LockIcon from '@material-ui/icons/Lock'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SidebarTweet from '../SidebarTweetBtn/SidebarTweetBtn'
-<<<<<<< HEAD
 import FaceIcon from '@material-ui/icons/Face'
-=======
->>>>>>> bdc6c1f... Edit and tweet modals all set up
 
 class Sidebar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { user: this.props.user }
+    this.state = { user: this.props.user, setPostId: this.props.setPostId }
   }
   nextPath (path) {
     this.props.history.push(path)
@@ -48,11 +45,9 @@ class Sidebar extends React.Component {
           <ExitToAppIcon className="home-icon" />
           <SidebarOption text='Sign Out'/>
         </button>
-<<<<<<< HEAD
-        <SidebarTweet user={ this.state.user } />
-=======
-        <Button variant="outlined" className="sidebar-tweet"><SidebarTweet /></Button>
->>>>>>> bdc6c1f... Edit and tweet modals all set up
+        <SidebarTweet user={ this.state.user }
+          setPostId={this.state.setPostId}
+        />
       </div>
     )
   }
