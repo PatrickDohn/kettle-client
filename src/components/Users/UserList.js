@@ -31,7 +31,7 @@ class UserList extends Component {
       <div key={user._id} className="tweets">
         <div className="contactCard">
           <Avatar src='AccountCircleIcon'></Avatar>
-          <Link to={`/profile/${user._id}`}>{user.email}</Link>
+          <Link className="user-link" to={`/profile/${user._id}`}>{user.email}</Link>
         </div>
       </div>
     ))

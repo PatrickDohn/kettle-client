@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './SidebarTweetBtn.css'
 import { Button, Modal } from 'react-bootstrap'
 import { Avatar } from '@material-ui/core'
 import axios from 'axios'
@@ -75,10 +76,10 @@ const SidebarTweet = ({ user, setPostId }) => {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header className="mod-header" closeButton>
           <Modal.Title></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="mod-body">
           <form id="create-post-form" onSubmit={handleSubmit}>
             <div className="tweet-input">
               <Avatar src='AccountCircleIcon'></Avatar>
@@ -100,7 +101,7 @@ const SidebarTweet = ({ user, setPostId }) => {
               Serve</Button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="mod-footer">
         </Modal.Footer>
       </Modal>
     </div>

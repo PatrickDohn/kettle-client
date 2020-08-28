@@ -15,26 +15,24 @@
 }
 
 .frontPageSubTitle {
-  position: relative;
+  text-align: left;
   top: 50%;
-  width: 24em;
-  margin: 0 auto;
+  width: 5em;
   border-right: 2px solid rgba(255,255,255,.75);
   font-size: 130%;
-  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   transform: translateY(-20%);
 }
 
 .anim-typewriter{
-  animation: typewriter 4s steps(44) 1s 1 normal both,
+  animation: typewriter 2s steps(44) 1s 1 normal both,
              blinkTextCursor 500ms steps(44) infinite normal;
 }
 
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 24em;}
+  to{width: 5em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}

@@ -1,0 +1,7 @@
+.postLink {
+  color: #344a57;
+}
+
+.postLink:hover {
+  color: white;
+}
