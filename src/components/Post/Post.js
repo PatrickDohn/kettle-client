@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'react-bootstrap'
 import './post.css'
 import Edit from '../Edit/Edit'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
 import moment from 'moment'
 
@@ -45,7 +44,7 @@ const Post = ({ user, posts, setPosts, setDeletedPost, setPostId }) => {
               size="sm"
               variant="outline-danger"
               id={post._id}
-              onClick={handleDelete}><DeleteForeverIcon /></Button> : ''}
+              onClick={handleDelete}>Delete</Button> : ''}
             {user._id === post.owner
               ? <Edit
                 className="edit-content"

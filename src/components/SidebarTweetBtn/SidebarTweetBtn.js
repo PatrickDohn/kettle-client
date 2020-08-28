@@ -8,7 +8,6 @@ import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
 
 const SidebarTweet = ({ user, setPostId }) => {
   const [show, setShow] = useState(false)
-
   const handleClose = () => {
     setShow(false)
     axios({
