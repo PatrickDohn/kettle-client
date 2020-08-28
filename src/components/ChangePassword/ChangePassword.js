@@ -74,7 +74,7 @@ class ChangePassword extends Component {
               />
             </Form.Group>
             <Button
-              variant="primary"
+              variant="secondary"
               type="submit"
             >
               Submit
@@ -82,7 +82,7 @@ class ChangePassword extends Component {
 
             <Link to='/home'>
               <Button
-                variant="primary"
+                variant="secondary"
                 type="submit"
               >
               Cancel

@@ -25,23 +25,15 @@
   width: 5em;
   border-right: 2px solid rgba(255,255,255,.75);
   font-size: 130%;
-<<<<<<< HEAD
-=======
   text-align: left;
->>>>>>> style changes
   white-space: nowrap;
   overflow: hidden;
   transform: translateY(-20%);
 }
 
 .anim-typewriter{
-<<<<<<< HEAD
-  animation: typewriter 2s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
-=======
   animation: typewriter 3s steps(44) 1s 1 normal both,
              blinkTextCursor 400ms infinite normal;
->>>>>>> style changes
 }
 
 @keyframes typewriter {
