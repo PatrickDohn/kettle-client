@@ -41,7 +41,6 @@ const SidebarTweet = ({ user, setPostId }) => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log('this is user in sidebar tweets ', user)
     axios({
       url: `${apiUrl}/new-post`,
       method: 'POST',

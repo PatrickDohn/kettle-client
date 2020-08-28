@@ -30,7 +30,7 @@ class UserList extends Component {
     const users = this.state.users.map(user => (
       <div key={user._id} className="tweets">
         <div className="contactCard">
-          <Avatar src='AccountCircleIcon'></Avatar>
+          <Avatar></Avatar>
           <Link className="user-link" to={`/profile/${user._id}`}>{user.email}</Link>
         </div>
       </div>

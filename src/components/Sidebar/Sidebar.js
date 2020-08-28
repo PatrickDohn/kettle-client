@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import SidebarOption from '../SidebarOptions/SidebarOptions'
 import './sidebar.css'
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
@@ -10,7 +9,6 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SidebarTweet from '../SidebarTweetBtn/SidebarTweetBtn'
 import GroupAddIcon from '@material-ui/icons/GroupAdd'
-import UserList from '../Users/UserList'
 
 class Sidebar extends React.Component {
   constructor (props) {
@@ -50,9 +48,6 @@ class Sidebar extends React.Component {
         <SidebarTweet user={ this.state.user }
           setPostId={this.state.setPostId}
         />
-        <AuthenticatedRoute user={this.state.user} path='/users' render={() => (
-          <UserList msgAlert={this.msgAlert} setPostId={this.state.setPostId} user={this.state.user} />
-        )} />
       </div>
     )
   }

@@ -5,6 +5,7 @@ import './home.css'
 
 const Home = ({ user }) => {
   const [postId, setPostId] = useState(null)
+
   return (
     <div className='app'>
       {/* Sidebar */}
