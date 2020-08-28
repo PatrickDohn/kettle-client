@@ -3,6 +3,7 @@ import { Button, Modal } from 'react-bootstrap'
 import { Avatar } from '@material-ui/core'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
 
 const SidebarTweet = ({ user }) => {
   const [show, setShow] = useState(false)
@@ -57,12 +58,13 @@ const SidebarTweet = ({ user }) => {
   return (
     <div>
       <Button variant="outlined" className="sidebar-tweet" onClick={handleShow}>
-        Tweet
+        <span className="full-text">Serve</span>
+        <span className="short-text"><EmojiFoodBeverageIcon /></span>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form id="create-post-form" onSubmit={handleSubmit}>
@@ -78,7 +80,8 @@ const SidebarTweet = ({ user }) => {
             </div>
             <Button
               className="tweet-btn"
-              type="submit">Serve</Button>
+              type="submit">
+              Serve</Button>
           </form>
         </Modal.Body>
         <Modal.Footer>

@@ -22,6 +22,10 @@ const Tweets = ({ user, postId, setPostId }) => {
     })
   }
 
+  const cancelCourse = () => {
+    document.getElementById('create-post-form').reset()
+  }
+
   const handleSubmit = event => {
     event.preventDefault()
 
@@ -35,12 +39,13 @@ const Tweets = ({ user, postId, setPostId }) => {
     })
       .then(res => setPostId(res.data.post._id))
       .then(() => setPost(''))
+      .then(() => cancelCourse())
       .catch(console.error)
   }
 
   return (
     <div className="tweets">
-      <form onSubmit={handleSubmit}>
+      <form id="create-post-form" onSubmit={handleSubmit}>
         <div className="tweet-input">
           <Avatar src='AccountCircleIcon'></Avatar>
           <input
