@@ -4,7 +4,7 @@ import Feed from '../Feed/Feed'
 import Layout from '../Layout/Layout'
 import './home.css'
 
-const Home = ({ user }) => {
+const Home = ({ user, msgAlert }) => {
   const [postId, setPostId] = useState(null)
 
   return (

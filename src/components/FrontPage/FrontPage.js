@@ -19,11 +19,11 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
-const FrontPage = ({ user }) => (
+const FrontPage = ({ user, msgAlert }) => (
   <div>
     <div className="ml-auto">
       { user ? <Route path='/home' render={() => (
-        <Home user={user} />
+        <Home user={user} msgAlert={msgAlert} />
       )} /> : unauthenticatedOptions }
     </div>
   </div>

@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import './tweet.css'
 import axios from 'axios'
 import { Avatar } from '@material-ui/core'
+import messages from '../AutoDismissAlert/messages'
 
 import apiUrl from '../../apiConfig'
 // import { Avatar, Button } from '@material-ui/core'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Tweets = ({ user, postId, setPostId }) => {
+const Tweets = ({ user, postId, setPostId, msgAlert }) => {
   const [post, setPost] = useState('')
 
   const handleChange = event => {
@@ -40,7 +41,18 @@ const Tweets = ({ user, postId, setPostId }) => {
       .then(res => setPostId(res.data.post._id))
       .then(() => setPost(''))
       .then(() => cancelCourse())
-      .catch(console.error)
+      .then(() => msgAlert({
+        heading: 'Serve Success',
+        message: messages.serveSuccess,
+        variant: 'secondary'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Tea serve failed with a status of: ' + error.message,
+          message: messages.serveFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   return (

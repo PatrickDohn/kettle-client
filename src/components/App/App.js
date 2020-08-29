@@ -25,7 +25,7 @@ const App = () => {
   }
   return (
     <Fragment>
-      <FrontPage user={user} />
+      <FrontPage user={user} msgAlert={msgAlert} />
       {msgAlerts.map((msgAlert, index) => (
         <AutoDismissAlert
           key={index}
@@ -35,7 +35,7 @@ const App = () => {
         />
       ))}
       <AuthenticatedRoute user={user} exact path='/profile' render={() => (
-        <Profile user={user} />
+        <Profile user={user} msgAlert={msgAlert} />
       )} />
       <AuthenticatedRoute user={user} exact path='/profile/:id' render={() => (
         <Friend user={user} />

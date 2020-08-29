@@ -11,7 +11,7 @@ import Post from '../Post/Post'
 import Sidebar from '../Sidebar/Sidebar'
 import Layout from '../Layout/Layout'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, msgAlert }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
