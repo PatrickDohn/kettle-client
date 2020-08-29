@@ -5,8 +5,9 @@ import { Avatar } from '@material-ui/core'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage'
+import messages from '../AutoDismissAlert/messages'
 
-const SidebarTweet = ({ user, setPostId }) => {
+const SidebarTweet = ({ user, setPostId, msgAlert }) => {
   const [show, setShow] = useState(false)
   const handleClose = () => {
     setShow(false)
@@ -49,6 +50,18 @@ const SidebarTweet = ({ user, setPostId }) => {
       },
       data: { post }
     })
+      .then(() => msgAlert({
+        heading: 'Serve Success',
+        message: messages.serveSuccess,
+        variant: 'secondary'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Tea serve failed with a status of: ' + error.message,
+          message: messages.serveFailure,
+          variant: 'danger'
+        })
+      })
       .then(() => setPost(''))
       .then(() => cancelCourse())
       .catch(console.error)

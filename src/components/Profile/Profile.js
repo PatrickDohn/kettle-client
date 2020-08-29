@@ -9,8 +9,9 @@ import apiUrl from '../../apiConfig'
 import Tweets from '../Tweets/Tweets'
 import Post from '../Post/Post'
 import Sidebar from '../Sidebar/Sidebar'
+import Layout from '../Layout/Layout'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, msgAlert }) => {
   const [postId, setPostId] = useState(null)
   const [posts, setPosts] = useState([])
   const [deletedPost, setDeletedPost] = useState(false)
@@ -52,26 +53,30 @@ const Profile = ({ user }) => {
   }
 
   return (
-    <div className="app">
-      <Sidebar
-        user={user}
-        setPostId={setPostId}
-      />
-      <div className="feed">
-        <div className="feed-header">
-          <h2 className="topFeed">My Profile</h2>
-          <Tweets
-            postId={postId}
-            setPostId={setPostId}
-            user={user}/>
+    <Layout>
+      <div className="app">
+        <Sidebar
+          user={user}
+          setPostId={setPostId}
+        />
+        <div className="feed">
+          <div className="feed-header">
+            <h2 className="topFeed">My Profile</h2>
+            <Tweets
+              postId={postId}
+              setPostId={setPostId}
+              user={user}
+              msgAlert={msgAlert} />
+          </div>
+          <Post
+            posts={posts}
+            setPosts={setPosts}
+            setDeletedPost={setDeletedPost}
+            user={user}
+          />
         </div>
-        <Post
-          posts={posts}
-          setPosts={setPosts}
-          setDeletedPost={setDeletedPost}
-          user={user}/>
       </div>
-    </div>
+    </Layout>
   )
 }
 

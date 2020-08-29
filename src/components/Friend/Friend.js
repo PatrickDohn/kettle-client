@@ -6,6 +6,7 @@ import apiUrl from '../../apiConfig'
 
 import Post from '../Post/Post'
 import Sidebar from '../Sidebar/Sidebar'
+import Layout from '../Layout/Layout'
 
 const Friend = ({ user, match }) => {
   const [posts, setPosts] = useState([])
@@ -22,17 +23,19 @@ const Friend = ({ user, match }) => {
   }, [])
 
   return (
-    <div className="app">
-      <Sidebar />
-      <div className="feed">
-        <div className="feed-header">
-          <h2 className="topFeed">Friend`s Profile</h2>
+    <Layout>
+      <div className="app">
+        <Sidebar />
+        <div className="feed">
+          <div className="feed-header">
+            <h2 className="topFeed">Friend`s Profile</h2>
+          </div>
+          <Post
+            posts={posts}
+            user={user}/>
         </div>
-        <Post
-          posts={posts}
-          user={user}/>
       </div>
-    </div>
+    </Layout>
   )
 }
 
