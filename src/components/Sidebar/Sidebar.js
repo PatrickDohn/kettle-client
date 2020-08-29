@@ -45,7 +45,8 @@ class Sidebar extends React.Component {
           <ExitToAppIcon className="home-icon" />
           <SidebarOption text='Sign Out'/>
         </button>
-        <SidebarTweet user={ this.state.user }
+        <SidebarTweet
+          user={ this.state.user }
           setPostId={this.state.setPostId}
           msgAlert={this.state.msgAlert}
         />

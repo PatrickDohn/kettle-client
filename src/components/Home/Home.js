@@ -10,14 +10,18 @@ const Home = ({ user, msgAlert }) => {
   return (
     <Layout>
       <div className='app'>
-        <Sidebar user={user}
+        <Sidebar
+          user={user}
           setPostId={setPostId}
+          msgAlert={msgAlert}
         />
 
         {/* Feed */}
-        <Feed user={user}
+        <Feed
+          user={user}
           postId={postId}
           setPostId={setPostId}
+          msgAlert={msgAlert}
         />
       </div>
     </Layout>

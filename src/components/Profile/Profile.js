@@ -65,13 +65,15 @@ const Profile = ({ user, msgAlert }) => {
             <Tweets
               postId={postId}
               setPostId={setPostId}
-              user={user}/>
+              user={user}
+              msgAlert={msgAlert} />
           </div>
           <Post
             posts={posts}
             setPosts={setPosts}
             setDeletedPost={setDeletedPost}
-            user={user}/>
+            user={user}
+          />
         </div>
       </div>
     </Layout>

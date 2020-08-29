@@ -40,6 +40,12 @@ const App = () => {
       <AuthenticatedRoute user={user} exact path='/profile/:id' render={() => (
         <Friend user={user} />
       )} />
+      <AuthenticatedRoute user={user} path='/change-password' render={() => (
+        <ChangePassword msgAlert={msgAlert} user={user} />
+      )} />
+      <AuthenticatedRoute user={user} path='/users' render={() => (
+        <UserList user={user} postId={postId} setPostId={setPostId} />
+      )} />
       <main className="container">
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
@@ -49,12 +55,6 @@ const App = () => {
         )} />
         <AuthenticatedRoute user={user} path='/sign-out' render={() => (
           <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-        )} />
-        <AuthenticatedRoute user={user} path='/change-password' render={() => (
-          <ChangePassword msgAlert={msgAlert} user={user} />
-        )} />
-        <AuthenticatedRoute user={user} path='/users' render={() => (
-          <UserList user={user} postId={postId} setPostId={setPostId} />
         )} />
       </main>
     </Fragment>
