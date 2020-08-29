@@ -5,6 +5,7 @@ import { Avatar } from '@material-ui/core'
 import './UserList.css'
 import apiUrl from '../../apiConfig'
 import Sidebar from '../Sidebar/Sidebar'
+import Layout from '../Layout/Layout'
 
 class UserList extends Component {
   constructor (props) {
@@ -37,15 +38,17 @@ class UserList extends Component {
     ))
 
     return (
-      <div className='app'>
-        <Sidebar
-          user={this.props.user}
-          setPostId={this.props.setPostId}
-        />
-        <ul>
-          {users}
-        </ul>
-      </div>
+      <Layout>
+        <div className='app'>
+          <Sidebar
+            user={this.props.user}
+            setPostId={this.props.setPostId}
+          />
+          <ul>
+            {users}
+          </ul>
+        </div>
+      </Layout>
     )
   }
 }
