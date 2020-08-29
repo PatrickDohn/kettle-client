@@ -4,7 +4,7 @@ This application is a social media platform inspired by Twitter. The idea is tha
 ## Important Links
 - [API Repo](https://github.com/C2C-NeedABr/kettle-api)
 - [Deployed API](https://fathomless-castle-00355.herokuapp.com/)
-- [Deployed Client](#)
+- [Deployed Client](c2c-needabr.github.io/kettle-client/)
 
 ### Planning Story
 Our team started out with the skeleton the the styling of the Twitter page that Patrick designed for us. From there, we decided to play off of the buzz phrase "that's the tea" to create a site for tea enthusiasts...both of the beverage and of the pop culture metaphor. With Twitter in mind, we first set up the homepage as a feed to view the posts, or tea, served by all users of the application. In V1 there is no way to limit your feed to view only a curated list of user's posts.

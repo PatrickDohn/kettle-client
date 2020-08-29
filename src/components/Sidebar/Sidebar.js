@@ -13,7 +13,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd'
 class Sidebar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { user: this.props.user, setPostId: this.props.setPostId }
+    this.state = { user: this.props.user, setPostId: this.props.setPostId, msgAlert: this.props.msgAlert }
   }
   nextPath (path) {
     this.props.history.push(path)
@@ -47,6 +47,7 @@ class Sidebar extends React.Component {
         </button>
         <SidebarTweet user={ this.state.user }
           setPostId={this.state.setPostId}
+          msgAlert={this.state.msgAlert}
         />
       </div>
     )
