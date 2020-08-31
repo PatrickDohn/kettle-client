@@ -38,3 +38,6 @@ The profile page and friend's profiles are simliar in design with the major diff
 
 ## Wireframe
 [Wireframe](https://imgur.com/BJKU7sP)
+
+## ERD
+[ERD](https://imgur.com/YZ2Z9Jh)
